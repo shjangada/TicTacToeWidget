@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Text, View, TouchableOpacity, StyleSheet, Button } from 'react-native';
+import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 
-export default function GamePage() {
+export default function TicTacToeWidget() {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
 
@@ -16,7 +16,7 @@ export default function GamePage() {
   const NewGame = () => {
     setBoard(Array(9).fill(null)); // Resetting the board
     setXIsNext(true);
-  }
+  };
 
   const renderSquare = (index) => {
     return (
@@ -68,9 +68,9 @@ const calculateWinner = (squares) => {
       return squares[i * 3];
     }
     // Check vertical columns
-      if (squares[i] !== null && squares[i] === squares[i + 3] && squares[i] === squares[i + 6]) {
-        return squares[i];
-      }
+    if (squares[i] !== null && squares[i] === squares[i + 3] && squares[i] === squares[i + 6]) {
+      return squares[i];
+    }
   }
   // Check diagonals
   if (squares[0] === squares[4] && squares[0] === squares[8]) {
@@ -121,5 +121,5 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#ffffff', // Set text color here
     fontSize: 16,
-  }
+  },
 });
